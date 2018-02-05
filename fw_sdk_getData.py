@@ -114,7 +114,7 @@ else:
 ################################################################################
 ## DOWNLOAD FILES
 
-if diffusion_acquisitions[0]:
+if len(diffusion_acquisitions) >= 1:
     for f in diffusion_acquisitions[0]['files']:
         if f['type'] == 'nifti':
             pp('Downloading ' + f['name'] + ' ...')
@@ -132,7 +132,7 @@ if diffusion_acquisitions[0]:
                                               f['name'],
                                               os.path.join(BVAL_1_DIR, f['name']))
 
-if diffusion_acquisitions[1]:
+if len(diffusion_acquisitions) == 2:
     for f in diffusion_acquisitions[1]['files']:
         if f['type'] == 'nifti':
             pp('Downloading ' + f['name'] + ' ...')
