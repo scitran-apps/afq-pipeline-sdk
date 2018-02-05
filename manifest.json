@@ -1,6 +1,6 @@
 {
   "name": "afq-pipeline-sdk",
-  "label": "AFQ SDK Pipeline: Automated Fiber Quantification Processing Pipeline",
+  "label": "AFQ Pipeline SDK: Automated Fiber Quantification Processing Pipeline",
   "description": "This SDK Gear will take a user-provided acquisition label and automatically find appropriate inputs for the Gear. The Gear runs a 3-step pipeline designed to run AFQ. The first step is optional, and will merge two diffusion datasets using FSLMERGE. The second step is data preprocessing using DTIINIT. The final step the Automated Fiber Quantification (AFQ), which generates tract profiles of tissue properties for major fiber tracts in the brain.",
   "maintainer": "Michael Perry <lmperry@stanford.edu>",
   "author": "Jason D. Yeatman, et. al, VISTA Lab, FMRIB Software Laboratory",
@@ -11,7 +11,7 @@
   "flywheel": "0",
   "version": "1.0.0",
   "custom": {
-    "docker-image": "scitran/afq-pipeline-sdk:v1.0.0"
+    "docker-image": "scitran/afq-pipeline-sdk:1.0.0"
   },
   "inputs": {
     "api_key": {
