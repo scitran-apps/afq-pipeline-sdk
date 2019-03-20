@@ -18,17 +18,17 @@ RUN apt-get update && apt-get install -y --force-yes \
 
 
 ############################
+# Install the Flywheel SDK
+
+RUN pip install flywheel-sdk
+
+
+############################
 # FUZZY
 
 RUN pip install --upgrade pip && \
     pip install fuzzywuzzy && \
     pip install fuzzywuzzy[speedup]
-
-
-############################
-# Install the Flywheel SDK
-
-RUN pip install flywheel-sdk
 
 
 ############################
