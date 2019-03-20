@@ -18,28 +18,17 @@ RUN apt-get update && apt-get install -y --force-yes \
 
 
 ############################
+# Install the Flywheel SDK
+
+RUN pip install flywheel-sdk
+
+
+############################
 # FUZZY
 
 RUN pip install --upgrade pip && \
     pip install fuzzywuzzy && \
     pip install fuzzywuzzy[speedup]
-
-
-############################
-# Install the Flywheel SDK
-
-WORKDIR /opt/flywheel
-# Commit for version of SDK to build
-ENV COMMIT bf2e0d6
-ENV LD_LIBRARY_PATH_TMP ${LD_LIBRARY_PATH}
-ENV LD_LIBRARY_PATH ' '
-RUN git clone https://github.com/flywheel-io/sdk workspace/src/flywheel.io/sdk
-RUN ln -s workspace/src/flywheel.io/sdk sdk
-RUN cd sdk && git checkout $COMMIT && cd ../
-RUN sdk/make.sh
-RUN sdk/bridge/make.sh
-ENV PYTHONPATH /opt/flywheel/workspace/src/flywheel.io/sdk/bridge/dist/python/flywheel
-ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH_TMP}
 
 
 ############################

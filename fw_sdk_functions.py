@@ -17,14 +17,13 @@ def get_diffusion_acquisitions(acquisitions, diffusion_acquisition_label):
         # Find diffusion acquisitions by finding acquisitions with a diffusion type and a bvec file
         diffusion_acquisitions = [ x for x in acquisitions
                                   if [y for y in x['files']
-                                      if y.has_key('measurements') and 'diffusion' in y['measurements']]
+                                      if y.classification.has_key('Measurement') and 'Diffusion' in y.classification['Measurement']]
                                   and [z for z in x['files']
                                        if z['type'] == 'bvec' or z['type'] == 'bval'] ]
 
         #  Determine acquisitions to use based on label fuzzy matching
         if len(diffusion_acquisitions) == 0:
-            print('No Diffusion acquisitions found! Either classification was not set or required \
-                    files (bvec, nifti, bval) do not exist in any aquisitions.')
+            print('No Diffusion acquisitions found! Either classification was not set or required files (bvec, nifti, bval) do not exist in any aquisitions.')
             return diffusion_acquisitions
 
         if len(diffusion_acquisitions) > 2:
@@ -62,7 +61,7 @@ def get_anatomical_acquisitions(acquisitions, anatomical_acquisition_label):
         # Find diffusion acquisitions by finding acquisitions with a diffusion type and a bvec file
         anatomical_acquisitions = [ x for x in acquisitions
                                   if [y for y in x['files']
-                                      if y.has_key('measurements') and 'anatomy_t1' in y['measurements']]
+                                      if y.classification.has_key('Measurement') and 'T1' in y.classification['Measurement']]
                                   and [z for z in x['files']
                                        if z['type'] == 'nifti' ] ]
     else:
