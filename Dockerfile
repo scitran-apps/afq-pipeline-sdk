@@ -1,7 +1,7 @@
 # Create Docker container that can run afq analysis with the Flywheel SDK.
 
 # Start with the afq-pipeline container
-FROM scitran/afq-pipeline:1.0.2
+FROM scitran/afq-pipeline:1.1.0
 MAINTAINER Michael Perry <lmperry@stanford.edu>
 
 ENV FLYWHEEL /flywheel/v0
